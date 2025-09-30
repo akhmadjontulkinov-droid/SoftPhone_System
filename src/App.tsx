@@ -84,19 +84,16 @@ function App() {
       if (!target.closest('.status-dropdown-container')) {
         setShowStatusDropdown(false);
       }
-      if (!target.closest('.user-menu-container')) {
-        setShowUserMenu(false);
-      }
     };
 
-    if (showStatusDropdown || showUserMenu) {
+    if (showStatusDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showStatusDropdown, showUserMenu]);
+  }, [showStatusDropdown]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -296,12 +293,9 @@ function App() {
         </div>
 
         <div className="flex items-center justify-between px-12 py-6 border-b border-gray-200">
-          <div className="flex items-center gap-3">
-            <Phone className="w-8 h-8 text-blue-600" />
-            <h1 className="text-3xl font-bold">SoftPhone System</h1>
-          </div>
+          <h1 className="text-3xl font-bold">SoftPhone System</h1>
 
-          <div className="relative user-menu-container">
+          <div className="relative">
             <button
               onClick={() => setShowUserMenu(!showUserMenu)}
               className="flex items-center gap-3 hover:bg-gray-50 rounded-lg px-3 py-2 transition-colors"

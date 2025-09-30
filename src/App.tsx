@@ -201,9 +201,15 @@ function App() {
     const isToday = date.toDateString() === today.toDateString();
 
     if (isToday) {
-      return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+      return date.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
     } else {
       return date.toLocaleString('en-US', {
+        timeZone: 'America/New_York',
         month: 'short',
         day: 'numeric',
         hour: '2-digit',
